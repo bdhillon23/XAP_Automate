@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.legacyTest.test.TC03_GetAttendance">
+        <methods>
+          <include name="init"/>
+          <include name="GetAttendance" invocation-numbers="1"/>
+          <include name="quite"/>
+        </methods>
+      </class> <!-- com.legacyTest.test.TC03_GetAttendance -->
+      <class name="com.legacyTest.test.TC09_Add_ToDoList">
+        <methods>
+          <include name="Add_ToDoList" invocation-numbers="1"/>
+          <include name="init"/>
+          <include name="quite"/>
+        </methods>
+      </class> <!-- com.legacyTest.test.TC09_Add_ToDoList -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
