@@ -1,0 +1,49 @@
+<project name="XAP_TOP_10" default="testng-execution" basedir=".">
+
+	<target name="DeleteDir">
+
+		<delete dir="bin" />
+		<delete dir="src" />
+		<delete dir="test-output" />
+		<echo>Build is Clean.</echo>
+	</target>
+	
+	<path id="Classpath">
+	<fileset dir="D:/lib/" includes="*.jar" />
+	<pathelement location="bin" />
+	<fileset dir="bin" includes="**/*"></fileset>	
+	</path>
+
+	<target name="CreateDir" depends="DeleteDir">
+
+		<mkdir dir="bin" />
+		
+		<mkdir dir="src" />
+		<mkdir dir="test-output" />
+		<echo>New Directory is created.</echo>
+	</target>
+
+	<target name="Copy" depends="CreateDir">
+		<copydir dest="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\src"
+			src="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\src" includes="**/*.java" />
+		<echo>The Copy Target is completed.</echo>
+	</target>
+	
+	
+	<target name="Compile" depends="Copy">
+	<javac classpathref="Classpath"  includeantruntime="true" srcdir="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\src" destdir="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\bin" includes="**/*.java"></javac>
+	
+		
+	</target>
+	
+	
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="Classpath" />
+	
+	<target name="testng-execution" depends="Compile">
+			<mkdir dir="${testng-report-dir}" />
+			<testng outputdir="${testng-report-dir}" classpathref="Classpath" useDefaultListeners="false">
+				<xmlfileset dir="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10" includes="testng.xml" />
+			</testng>
+		</target>
+
+</project>
