@@ -6,13 +6,13 @@
       <class name="com.legacyTest.test.TC03_GetAttendance">
         <methods>
           <include name="init"/>
-          <include name="GetAttendance" invocation-numbers="1"/>
+          <include name="GetAttendance" invocation-numbers="0"/>
           <include name="quite"/>
         </methods>
       </class> <!-- com.legacyTest.test.TC03_GetAttendance -->
       <class name="com.legacyTest.test.TC09_Add_ToDoList">
         <methods>
-          <include name="Add_ToDoList" invocation-numbers="1"/>
+          <include name="Add_ToDoList" invocation-numbers="0"/>
           <include name="init"/>
           <include name="quite"/>
         </methods>

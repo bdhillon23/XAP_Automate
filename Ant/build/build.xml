@@ -10,31 +10,46 @@
 	
 	<path id="Classpath">
 	<fileset dir="D:/lib/" includes="*.jar" />
-	<pathelement location="bin" />
-	<fileset dir="bin" includes="**/*"></fileset>	
+	<pathelement location="C:\Users\balwinder\git\XAP_Automate\Ant\build\bin" />
 	</path>
 
 	<target name="CreateDir" depends="DeleteDir">
 
 		<mkdir dir="bin" />
-		
 		<mkdir dir="src" />
 		<mkdir dir="test-output" />
 		<echo>New Directory is created.</echo>
+
 	</target>
 
+	<path id="srcfiles">
+	<fileset dir="C:\Users\balwinder\git\XAP_Automate\src" includes="**/*.java"></fileset>
+	</path>
+	
+	
 	<target name="Copy" depends="CreateDir">
-		<copydir dest="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\src"
-			src="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\src" includes="**/*.java" />
+		
+		<copydir src="C:\Users\balwinder\git\XAP_Automate\src" includes="**/*.java" dest="C:\Users\balwinder\git\XAP_Automate\Ant\build\src"></copydir>
+		 
 		<echo>The Copy Target is completed.</echo>
 	</target>
 	
 	
-	<target name="Compile" depends="Copy">
-	<javac classpathref="Classpath"  includeantruntime="true" srcdir="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\src" destdir="C:\Users\balwinder\git\XAP_TOP_10\XAP_TOP_10\Ant\build\bin" includes="**/*.java"></javac>
 	
 		
-	</target>
+		<target name="Compile" depends="Copy">
+			
+			<javac classpathref="Classpath"  includeantruntime="true"
+				srcdir="C:\Users\balwinder\git\XAP_Automate\Ant\build\src"
+				destdir="C:\Users\balwinder\git\XAP_Automate\Ant\build\bin" includes="**/*.java">
+		
+			</javac>
+			<echo>All dot class files are copied in the Bin Directory</echo>
+				
+			</target>
+	
+		
+
 	
 	
 	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="Classpath" />
