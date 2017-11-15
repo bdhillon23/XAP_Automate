@@ -33,11 +33,7 @@
 		 
 		<echo>The Copy Target is completed.</echo>
 	</target>
-	
-	
-	
-		
-		<target name="Compile" depends="Copy">
+	<target name="Compile" depends="Copy">
 			
 			<javac classpathref="Classpath"  includeantruntime="true"
 				srcdir="C:\Users\balwinder\git\XAP_Automate\Ant\build\src"
